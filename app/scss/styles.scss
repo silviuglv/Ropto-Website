@@ -563,13 +563,45 @@ section.section{
 
 /* BANNER */
 
+.main-bg{
+  @include background('../images/illo-main-blur.png',$position:center center, $color: $mid-blue);
+  background-size: 80% auto;
+  opacity: 0;
+  filter: blur(15px);
+  @include transition(opacity 2.5s ease);
+
+  /* this is needed so Safari keeps sharp edges */
+  transform: scale(1);
+
+  &.visible{
+    @include background('../images/illo-main-2x.png',$position:center center, $color: $mid-blue);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
 .banner{
     @include flexbox();
     height: 100vh;
     @include justify-content(center);
     @include align-items(center);
     color: white;
-    text-align: center;
+    text-align: left;
+
+    .banner-text{
+      h1{
+        -ms-transform: skewY(20deg); /* IE 9 */
+        -webkit-transform: skewY(20deg); /* Safari */
+        transform: skewY(20deg);
+        margin-bottom: 575px;
+        margin-left: 300px;
+        font-weight: bold;
+        font-size: 5rem;
+      }
+    }
+
+
+
 }
 
 /* ROPTO IN NUMBERS */
