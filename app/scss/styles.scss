@@ -1,0 +1,1000 @@
+@import "__mixins.scss", "__flexbox.scss", "__breakpoint.scss", "__colours.scss", "__fonts.scss";
+
+html{
+    font-size: 16px;
+}
+
+body{
+
+    font-family: "Heebo", sans-serif;
+    color: $font-dark;
+
+    @include breakpoint(tablet){
+            font-size: 4rem;
+    }
+
+
+}
+
+p, li, address{
+    font-size: 0.85rem;
+    line-height: 1.4em;
+    margin-bottom: 1rem;
+
+    @include breakpoint(tablet){
+            font-size: 1rem;
+    }
+
+    @include breakpoint(desktop){
+            font-size: 1.25rem;
+    }
+}
+
+h1{
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 3.5rem;
+    line-height: 1em;
+    font-weight: $bold;
+    display: inline-block;
+
+    @include breakpoint(tablet){
+        font-size: 4.25rem;
+    }
+
+    @include between-breakpoints($mobile, $tablet){
+        br{
+            display: none;
+        }
+    }
+
+    @include breakpoint(desktop){
+        font-size: 7rem;
+    }
+
+    &:after{
+        content: "";
+        display: block;
+        width: 50%;
+        height: 1px;
+        margin: 2rem 0;
+        border-bottom: 2px solid $mid-blue;
+    }
+
+    &.green-rule:after{
+        border-bottom: 2px solid $light-green;
+    }
+
+    .text-center &:after{
+        margin: 2rem auto;
+    }
+
+    .mid-blue-bg &:after{
+        border-bottom: 2px solid white;
+    }
+
+    &.no-rule{
+
+        margin-bottom: 2rem;
+
+        &:after{
+            display: none;
+        }
+
+    }
+
+    .testimonials &{
+        font-size: 2rem;
+    }
+}
+
+
+h3{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+
+    .testimonials &{
+        font-size: 1.25rem;
+    }
+}
+
+p{
+
+
+    .testimonial &{
+        font-style: italic;
+    }
+}
+
+
+
+li{
+    line-height: 2.4em;
+    margin-bottom: 1rem;
+}
+
+img.image{
+    max-width: 75%;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+
+    @include breakpoint(tablet){
+        max-width: 100%;
+
+        .switch-cols .col-6 &{
+            float: right;
+            padding-right: 2rem;
+        }
+    }
+
+    &.image-xl{
+
+        @include breakpoint(desktop){
+            min-width: 150%;
+            padding: 0 2rem;
+
+            .switch-cols .col-6 &{
+                padding-right: 6rem;
+            }
+        }
+    }
+}
+
+.text-center{
+    text-align: center;
+}
+
+address{
+    line-height: 1.5em;
+}
+
+/* PAGE+GRID STRUCTURE */
+
+section.section{
+    overflow: hidden;
+}
+
+.container{
+    /* overflow: hidden; */
+    box-sizing: border-box;
+    width: 100%;
+    padding: 4rem 2rem;
+
+
+    .split-bg-img &{
+        padding-bottom: 1rem;
+
+        @include breakpoint(tablet){
+            padding-bottom: 4rem;
+        }
+    }
+
+    @include breakpoint(tablet){
+        padding: 6rem 4rem;
+    }
+
+    max-width: $max-grid-width;
+    display: block;
+    margin: auto;
+
+    &.container-xl{
+        max-width: 1500px;
+    }
+}
+
+
+
+/* LAZY IMG FOR CSS BACKGROUNDS */
+/* LOW-RES IMAGE MUST BE INCLUDED BELOW */
+
+.lazy-bg-img{
+
+    &:after{
+        @include background('../images/illo-woman-mobile-blur.png',$position:center center, $color: white);
+
+        opacity: 0;
+        filter: blur(15px);
+
+        @include transition(opacity 2.5s ease);
+
+        /* this is needed so Safari keeps sharp edges */
+        transform: scale(1);
+    }
+
+    &.visible:after{
+        @include background('../images/illo-woman-mobile-2x.png',$position:center center, $color: white);
+
+        opacity: 1;
+
+        filter: blur(0);
+    }
+
+}
+
+
+.split-bg-img{
+    position: relative;
+
+    &:after{
+        content: "";
+        display: block;
+        position: relative;
+        height: 300px;
+        width: 100%;
+        background: grey;
+        background-size: 100% auto;
+
+         @include breakpoint(tablet){
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            top: 0;
+            left: 50%;
+        }
+    }
+
+    &.bg-woman{
+
+      &:after{
+        @include background('../images/illo-woman-mobile-blur.png',$position:center center, $color: white);
+        background-size: auto 100%;
+      }
+
+      &.visible:after{
+        @include background('../images/illo-woman-mobile-2x.png',$position:center center, $color: white);
+
+        @include breakpoint(tablet){
+            background-size: 90% auto;
+            background-position: 10% center;
+        }
+
+        @include breakpoint(tablet-horizontal){
+            background-size: 80% auto;
+        }
+
+        @include breakpoint(desktop){
+            background-size: auto 90%;
+            background-position: left center;
+
+        }
+      }
+    }
+
+    &.bg-submit{
+
+      &:after{
+        @include background('../images/illo-submit-blur.png',$position: center calc(50% + 20%), $color: $mid-blue);
+        background-size: auto 80%;
+      }
+
+      &.visible:after{
+          @include background('../images/illo-submit-2x.png',$position: center calc(50% + 20%), $color: $mid-blue);
+
+          @include breakpoint(tablet){
+              background-size: auto 70%;
+          }
+
+          @include breakpoint(desktop){
+            background-position: left 100px center;
+          }
+      }
+
+    }
+
+    &.bg-tablet{
+
+      &:after{
+        left: 0;
+
+        @include background('../images/illo-tablet-blur.png',$position:center center, $color: $light-grey);
+        background-size: auto 60%;
+      }
+
+      &.visible:after{
+          @include background('../images/illo-tablet-2x.png',$position:center center, $color: $light-grey);
+
+          @include breakpoint(tablet){
+              background-size: 80% auto;
+              background-position: center center;
+          }
+
+          @include breakpoint(desktop){
+              background-size: auto 55%;
+          }
+      }
+
+    }
+
+    &.bg-laptop{
+
+        &:after{
+            @include background('../images/illo-laptop-blur.png',$position:center center, $color: white);
+            background-size: auto 80%;
+        }
+
+        &.visible:after{
+            @include background('../images/illo-laptop-2x.png',$position:center center, $color: white);
+
+            @include between-breakpoints($tablet, $tablet-horizontal){
+                background-size: auto 50%;
+            }
+        }
+    }
+
+    &.bg-location{
+      &:after{
+        @include background('../images/illo-billboard-blur.png',$position:center center, $color: $light-green);
+      }
+      &.visible:after{
+          @include background('../images/illo-billboard-2x.png',$position:center center, $color: $light-green);
+
+          @include breakpoint(mobile-horizontal){
+              background-position: center bottom;
+          }
+
+          @include breakpoint(tablet){
+              background-position: center center;
+          }
+      }
+    }
+
+    &.bg-laptop-viewers{
+
+      &:after{
+        left: 0;
+
+        @include background('../images/illo-laptop-viewers-blur.png',$position:center center, $color: transparent);
+        background-size: auto 80%;
+      }
+      &.visible:after{
+          @include background('../images/illo-laptop-viewers-2x.png',$position:center center, $color: transparent);
+
+          @include breakpoint(desktop){
+            background-size: auto 90%;
+            background-position: right 100px center;
+          }
+      }
+    }
+
+    &.bg-address{
+
+      &:after{
+        @include background('../images/illo-location-blur.png',$position:center 60%, $color: $light-green);
+        background-size: auto 80%;
+      }
+
+      &.visible:after{
+        @include background('../images/illo-location-2x.png',$position:center 60%, $color: $light-green);
+      }
+    }
+
+    &.bg-connect{
+
+      &:after{
+        left: 0;
+
+        @include background('../images/illo-social-blur.png',$position:center 60%, $color: white);
+        background-size: auto 80%;
+      }
+
+      &.visible:after{
+        @include background('../images/illo-social-2x.png',$position:center 60%, $color: white);
+
+        @include breakpoint(tablet){
+          background-size: 60% auto;
+        }
+
+        @include breakpoint(desktop){
+          background-size: auto 70%;
+        }
+      }
+
+
+    }
+
+}
+
+/* OLD CODE PHASE OUT */
+
+.split-bg{
+    position: relative;
+
+     @include breakpoint(tablet){
+
+        &:before{
+            content: "";
+            background: white;
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            top: 0;
+            left: 50%;
+        }
+
+
+        &.white-split:before{
+            background: white;
+        }
+
+        &.blue-split:before{
+            background: $mid-blue;
+        }
+
+        &.green-split:before{
+            background: $light-green;
+        }
+    }
+}
+
+
+/* OLD CODE PHASE OUT */
+
+
+.row{
+    font-size: 0;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-items(center);
+
+    @include breakpoint(tablet){
+        @include flex-direction(row);
+    }
+
+    &.row-top{
+        @include align-items(flex-start);
+    }
+
+}
+
+.col-12, .col-6{
+    box-sizing: border-box;
+    font-size: 1rem;
+    position: relative;
+    min-width: 100%;
+
+
+    &:first-child{
+        padding-bottom: 1rem;
+    }
+
+    &.flow-col{
+        padding-bottom: 0;
+    }
+
+    @include breakpoint(tablet){
+        min-width: inherit;
+        margin-bottom: 0;
+    }
+}
+
+.col-12{
+    @include flex(100%);
+}
+
+.col-6{
+    @include flex(50%);
+
+    @include breakpoint(tablet){
+        &:first-child{
+            padding-right: 4rem;
+        }
+
+        .switch-cols &{
+            padding-right: 0;
+        }
+    }
+
+
+
+}
+
+
+
+.switch-cols{
+    :nth-child(1){
+        order: 1;
+
+        @include breakpoint(tablet){
+            order: 2;
+        }
+    }
+
+    :nth-child(2){
+        order: 2;
+
+        @include breakpoint(tablet){
+            order: 1;
+        }
+    }
+}
+
+
+
+.light-grey-bg{
+    background: $light-grey;
+}
+
+.mid-blue-bg{
+    background: $mid-blue;
+    color: white;
+}
+
+/* HEADER */
+
+.header{
+    width: 100%;
+    position: fixed;
+    box-sizing: border-box;
+    height: 62.5px;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    background: transparent;
+    z-index: 1;
+    background: $mid-blue;
+    @include transition(top 0.75s ease);
+
+    @include breakpoint(tablet){
+        height: 90px;
+    }
+
+    &.scrolling-down{
+        top: -62.5px;
+
+        @include breakpoint(tablet){
+            top: -90px;
+        }
+    }
+
+    img{
+        max-width: 100px;
+
+        @include breakpoint(tablet){
+            max-width: 180px;
+        }
+    }
+}
+
+/* BANNER */
+
+.banner{
+    @include flexbox();
+    height: 100vh;
+    @include justify-content(center);
+    @include align-items(center);
+    color: white;
+    text-align: center;
+}
+
+/* ROPTO IN NUMBERS */
+
+.ropto-in-numbers-bg{
+    @include background('../images/bg-city.png',$position:left bottom 8rem, $color: $light-grey);
+    background-size: 275% auto;
+
+    @include breakpoint(tablet){
+        @include background('../images/bg-city.png',$position:left bottom 7.5rem, $color: $light-grey);
+        background-size: 150% auto;
+    }
+
+    @include breakpoint(desktop){
+        @include background('../images/bg-city.png',$position:left bottom 0, $color: $light-grey);
+        background-size: 100% auto;
+    }
+
+}
+
+
+
+.container.ropto-in-numbers{
+    padding-bottom: 8rem;
+
+    @include breakpoint(tablet){
+        padding-bottom: 11rem;
+    }
+
+
+    .ropto-numbers{
+        display: block;
+        margin: auto;
+        max-width: 800px;
+
+        >ul{
+            position: relative;
+            display: grid;
+            grid-template-columns: 2fr 2fr;
+            grid-gap: 5px;
+            color: white;
+
+            @include breakpoint(tablet){
+                grid-gap: 15px;
+            }
+
+            >li{
+                box-sizing: border-box;
+                padding: 1rem;
+                text-align: center;
+                margin-bottom: 0;
+
+                @include breakpoint(tablet){
+                    padding: 2rem;
+                }
+
+                .title{
+                    opacity: 0.8;
+                }
+
+                .stat{
+                    font-size: 3rem;
+                    line-height: 1.1em;
+                    font-weight: $bold;
+
+                    @include breakpoint(tablet){
+                        font-size: 6rem;
+                    }
+
+                }
+
+                .caption{
+                    font-size: 1rem;
+
+                    @include breakpoint(tablet){
+                        font-size: 1.75rem;
+                    }
+                }
+            }
+
+            > li:nth-child(1), > li:nth-child(4)
+            {
+                background: $mid-blue;
+            }
+            > li:nth-child(2), > li:nth-child(3){
+                background: $light-green;
+            }
+
+            &:after{
+                content: "";
+                position: absolute;
+                bottom: -90px;
+                right: -20px;
+
+                @include background('../images/illo-man-looking-up.png',$position:right center,$repeat: no-repeat);
+                background-size: auto 100%;
+
+                width: 200px;
+                height: 250px;
+                display: block;
+
+                @include breakpoint(tablet){
+                    bottom: -150px;
+                    right: -30px;
+                    width: 400px;
+                    height: 400px;
+                }
+
+                @include breakpoint(desktop){
+                    right: -80px;
+                }
+
+            }
+        }
+    }
+
+}
+
+/* ADVERTORIAL */
+
+.advertorial-text{
+  @include breakpoint(desktop){
+      padding: 4rem 0;
+  }
+}
+
+/* CASE STUDIES */
+
+.case-studies{
+    li{
+        position: relative;
+        font-weight: $mid;
+        margin-bottom: 3rem;
+
+        p{
+            margin-bottom: 0;
+        }
+
+        br{
+            @include breakpoint(desktop){
+                display: none;
+            }
+        }
+    }
+
+    button{
+        font-size: 0.75em;
+        font-weight: inherit;
+        color: inherit;
+        background: $light-green;
+        border-radius: 4px;
+        padding: 1rem 4rem 1rem 1rem;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        @include translate(0,-50%);
+        cursor: pointer;
+        @include transition(color 0.5s ease, background 0.5s ease);
+
+        &:hover{
+            background: $dark-green;
+            color: white;
+        }
+
+        &:after{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            @include translate(0,-50%);
+            @include background('../images/icon-download.png',$position:center center,$repeat: no-repeat);
+                background-size: auto 100%;
+        }
+    }
+}
+
+
+/* TESTIMONIALS */
+
+.testimonial{
+  position: relative;
+  width: 100%;
+
+  .testimonial-inner{
+      max-width: 100%;
+      display: block;
+      margin: auto;
+
+      @include breakpoint(mobile-horizontal){
+          max-width: 60%;
+      }
+
+      @include breakpoint(desktop){
+          padding-top: 3rem;
+      }
+
+      @include breakpoint(desktop-xl){
+          max-width: 1200px;
+      }
+
+      ul{
+        position: relative;
+        height: 300px;
+
+        @include breakpoint(mobile-horizontal){
+          height: 300px;
+        }
+
+        @include breakpoint(tablet){
+          height: 250px;
+        }
+
+        @include breakpoint(desktop){
+          height: 360px;
+        }
+
+        li{
+          position: absolute;
+          top: 50%;
+          @include translate(0,-50%);
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          opacity: 0;
+          @include transition(left 1s ease, opacity 1s ease);
+
+
+          @include breakpoint(desktop){
+            *{
+              font-size: 1.6rem;
+            }
+          }
+
+          &.left{
+            left: -100%;
+          }
+
+          &.right{
+            left: 100%;
+          }
+
+          &.visible{
+            left: 0;
+            opacity: 1;
+          }
+        }
+      }
+
+      button{
+        position: relative;
+        font-size: 2rem;
+        margin-top: 1rem;
+        cursor: pointer;
+        padding: 0 20px;
+        line-height: 0;
+        font-size: 0;
+        width: 20px;
+        height: 20px;
+        outline: none;
+        opacity: 0.4;
+        @include transition(opacity 1s ease);
+
+        @include background('../images/icon-chevron-small.png',$position:center center, $color: transparent);
+        background-size: auto 100%;
+
+        @include breakpoint(mobile-horizontal){
+
+            @include background('../images/icon-chevron-large.png',$position:center center, $color: transparent);
+            background-size: 100% auto;
+
+            margin-top: 0;
+            position: absolute;
+            top: 50%;
+            height: 100%;
+            padding: 0;
+        }
+
+        &:hover{
+          opacity: 0.8;
+        }
+
+        &.prev-button{
+          -moz-transform: rotate(180deg) translate(0,50%);
+          -webkit-transform: rotate(180deg) translate(0,50%);
+          -o-transform: rotate(180deg) translate(0,50%);
+          -ms-transform: rotate(180deg) translate(0,50%);
+          transform: rotate(180deg) translate(0,50%);
+
+          @include breakpoint(mobile-horizontal){
+              left: 0;
+          }
+        }
+
+        &.next-button{
+          -moz-transform: translate(0,-50%);
+          -webkit-transform: translate(0,-50%);
+          -o-transform: translate(0,-50%);
+          -ms-transform: translate(0,-50%);
+          transform: translate(0,-50%);
+
+          @include breakpoint(mobile-horizontal){
+              right: 0;
+          }
+        }
+      }
+  }
+
+}
+
+/* CONTACT */
+
+.contact{
+
+    .col-6{
+        padding-right: 0.5rem;
+    }
+
+    button{
+        font-size: inherit;
+        font-weight: inherit;
+        color: white;
+        background: $mid-blue;
+        border-radius: 100px;
+        padding: 1rem 1rem 1rem 1rem;
+        cursor: pointer;
+        @include transition(color 0.5s ease, background 0.5s ease);
+
+        &:hover{
+            background: $dark-green;
+            color: white;
+        }
+    }
+
+
+}
+
+
+/* SOCIAL */
+
+.contact{
+
+    button{
+        font-size: inherit;
+        font-weight: inherit;
+        color: white;
+        background: $mid-blue;
+        border-radius: 100px;
+        padding: 1rem 1rem 1rem 1rem;
+        cursor: pointer;
+        @include transition(color 0.5s ease, background 0.5s ease);
+
+        &:hover{
+            background: $dark-green;
+            color: white;
+        }
+    }
+
+}
+
+.social{
+    ul{
+        text-align: center;
+        margin: 2rem 0 0 0;
+
+        @include breakpoint(tablet){
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        li{
+            position: relative;
+            line-height: 0;
+            display: inline-block;
+            background: $mid-blue;
+            height: 55px;
+            width: 55px;
+            border-radius: 100%;
+            margin: 0 0.1rem;
+            @include transition(color 0.5s ease, background 0.5s ease);
+
+            @include breakpoint(tablet){
+              height: 70px;
+              width: 70px;
+            }
+
+            @include breakpoint(desktop){
+                height: 100px;
+                width: 100px;
+                margin: 0 0.4rem;
+            }
+
+            &:hover{
+                background: $dark-green;
+            }
+
+            a{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+
+            img{
+                position: absolute;
+                width: 50%;
+                height: 50%;
+                left: 50%;
+                top: 50%;
+                @include translate(-50%,-50%);
+
+            }
+        }
+    }
+}
+
+footer{
+    text-align: center;
+    background: $dark-grey;
+    color: white;
+    padding: 2rem;
+
+    p{
+        margin-bottom: 0;
+    }
+}

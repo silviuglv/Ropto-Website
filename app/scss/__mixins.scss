@@ -1,0 +1,30 @@
+/* COVER IMAGE */
+
+@mixin background($imgpath,$position:0 0,$repeat: no-repeat, $color: transparent) {
+    background: {
+        color: $color;
+        image: url($imgpath);
+        position: $position;
+        repeat: $repeat;
+    }
+}
+
+/* TRANSITION */
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+
+/* Translate */
+
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+     -moz-transform: translate($x, $y);
+      -ms-transform: translate($x, $y);
+       -o-transform: translate($x, $y);
+          transform: translate($x, $y);
+}
