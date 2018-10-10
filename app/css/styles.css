@@ -436,6 +436,28 @@ section.section {
         max-width: 180px; } }
 
 /* BANNER */
+.main-bg {
+  background-color: #0092fe;
+  background-image: url("../images/illo-main-blur.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 80% auto;
+  opacity: 0;
+  filter: blur(15px);
+  -moz-transition: opacity 2.5s ease;
+  -o-transition: opacity 2.5s ease;
+  -webkit-transition: opacity 2.5s ease;
+  transition: opacity 2.5s ease;
+  /* this is needed so Safari keeps sharp edges */
+  transform: scale(1); }
+  .main-bg.visible {
+    background-color: #0092fe;
+    background-image: url("../images/illo-main-2x.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    filter: blur(0); }
+
 .banner {
   display: -webkit-box;
   display: -moz-box;
@@ -453,7 +475,17 @@ section.section {
   -ms-align-items: center;
   align-items: center;
   color: white;
-  text-align: center; }
+  text-align: left; }
+  .banner .banner-text h1 {
+    -ms-transform: skewY(20deg);
+    /* IE 9 */
+    -webkit-transform: skewY(20deg);
+    /* Safari */
+    transform: skewY(20deg);
+    margin-bottom: 575px;
+    margin-left: 300px;
+    font-weight: bold;
+    font-size: 5rem; }
 
 /* ROPTO IN NUMBERS */
 .ropto-in-numbers-bg {
