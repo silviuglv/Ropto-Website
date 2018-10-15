@@ -27,9 +27,11 @@ p, li, address {
     p, li, address {
       font-size: 1.25rem; } }
 
-h1 {
-  font-size: 2rem; }
-
+/*
+h1{
+    font-size: 2rem;
+}
+*/
 h2 {
   font-size: 3.5rem;
   line-height: 1em;
@@ -135,10 +137,10 @@ section.section {
   background-repeat: no-repeat;
   opacity: 0;
   filter: blur(15px);
-  -moz-transition: opacity 2.5s ease;
-  -o-transition: opacity 2.5s ease;
-  -webkit-transition: opacity 2.5s ease;
-  transition: opacity 2.5s ease;
+  -moz-transition: opacity 4s ease;
+  -o-transition: opacity 4s ease;
+  -webkit-transition: opacity 4s ease;
+  transition: opacity 4s ease;
   /* this is needed so Safari keeps sharp edges */
   transform: scale(1); }
 
@@ -414,7 +416,6 @@ section.section {
   top: 0;
   left: 0;
   padding: 1rem;
-  background: transparent;
   z-index: 1;
   background: #0092fe;
   -moz-transition: top 0.75s ease;
@@ -435,13 +436,27 @@ section.section {
       .header img {
         max-width: 180px; } }
 
+/* MENU */
+.nav-button {
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  height: 100%;
+  width: 100px;
+  background-color: red;
+  background-image: url("../images/icon-menu.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 60%; }
+
 /* BANNER */
 .main-bg {
   background-color: #0092fe;
   background-image: url("../images/illo-main-blur.png");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 80% auto;
   opacity: 0;
   filter: blur(15px);
   -moz-transition: opacity 2.5s ease;
@@ -453,39 +468,80 @@ section.section {
   .main-bg.visible {
     background-color: #0092fe;
     background-image: url("../images/illo-main-2x.png");
-    background-position: center center;
+    background-position: left center;
     background-repeat: no-repeat;
+    background-size: auto 60%;
+    background-position: left calc(50% - 30px);
     opacity: 1;
     filter: blur(0); }
+    @media (min-width: 1280px) {
+      .main-bg.visible {
+        background-position: center calc(50% - 30px);
+        background-size: auto 80%; } }
+    @media (min-width: 1500px) {
+      .main-bg.visible {
+        background-position: center calc(50% - 80px);
+        background-size: auto 70%; } }
 
 .banner {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
+  /* @include flexbox(); */
   height: 100vh;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -ms-flex-pack: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
+  /* @include justify-content(center); */
+  /* include align-items(center); */
   color: white;
   text-align: left; }
-  .banner .banner-text h1 {
-    -ms-transform: skewY(20deg);
-    /* IE 9 */
-    -webkit-transform: skewY(20deg);
-    /* Safari */
-    transform: skewY(20deg);
-    margin-bottom: 575px;
-    margin-left: 300px;
+  .banner .banner-text {
+    display: block;
+    position: absolute;
+    bottom: 5%;
+    left: 1rem;
+    font-size: 2.4em;
     font-weight: bold;
-    font-size: 5rem; }
+    /*
+      h1{
+        position: absolute;
+        bottom: 0;
+        left: 1rem;
+        @include translate(0,-50%);
+        font-weight: bold;
+        font-size: 2.4rem;
+
+        @media(min-width: 375px){
+          font-size: 2.8rem;
+          top: calc(50% + 210px);
+        }
+
+        @media(min-width: 414px){
+          font-size: 3.2rem;
+          top: calc(50% + 240px);
+        }
+
+        strong{
+          color: $light-grey;
+        }
+      }
+      */ }
+    .banner .banner-text h1 {
+      text-shadow: 0px 0px 10px #009fe3; }
+    @media (min-width: 375px) {
+      .banner .banner-text {
+        font-size: 3em; } }
+    @media (min-width: 414px) {
+      .banner .banner-text {
+        font-size: 3.2em; } }
+    @media (min-width: 768px) {
+      .banner .banner-text {
+        left: 2rem;
+        font-size: 1.4em; } }
+    @media (min-width: 1280px) {
+      .banner .banner-text {
+        left: 10%; } }
+    @media (min-width: 1500px) {
+      .banner .banner-text {
+        font-size: 1em;
+        bottom: 8%; } }
+    .banner .banner-text strong {
+      color: #f8f8f8; }
 
 /* ROPTO IN NUMBERS */
 .ropto-in-numbers-bg {

@@ -30,9 +30,11 @@ p, li, address{
     }
 }
 
+/*
 h1{
     font-size: 2rem;
 }
+*/
 
 h2{
     font-size: 3.5rem;
@@ -200,7 +202,7 @@ section.section{
         opacity: 0;
         filter: blur(15px);
 
-        @include transition(opacity 2.5s ease);
+        @include transition(opacity 4s ease);
 
         /* this is needed so Safari keeps sharp edges */
         transform: scale(1);
@@ -535,7 +537,6 @@ section.section{
     top: 0;
     left: 0;
     padding: 1rem;
-    background: transparent;
     z-index: 1;
     background: $mid-blue;
     @include transition(top 0.75s ease);
@@ -561,11 +562,24 @@ section.section{
     }
 }
 
+/* MENU */
+
+.nav-button{
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  height: 100%;
+  width: 100px;
+  @include background('../images/icon-menu.png',$position:center center, $color: red);
+  background-size: auto 60%;
+}
+
 /* BANNER */
 
 .main-bg{
   @include background('../images/illo-main-blur.png',$position:center center, $color: $mid-blue);
-  background-size: 80% auto;
   opacity: 0;
   filter: blur(15px);
   @include transition(opacity 2.5s ease);
@@ -574,30 +588,96 @@ section.section{
   transform: scale(1);
 
   &.visible{
-    @include background('../images/illo-main-2x.png',$position:center center, $color: $mid-blue);
+    @include background('../images/illo-main-2x.png',$position:left center, $color: $mid-blue);
+    background-size: auto 60%;
+    background-position: left calc(50% - 30px);
     opacity: 1;
     filter: blur(0);
+
+
+    @include breakpoint(desktop){
+        background-position: center calc(50% - 30px);
+        background-size: auto 80%;
+    }
+
+    @include breakpoint(desktop-wide){
+        background-position: center calc(50% - 80px);
+        background-size: auto 70%;
+    }
   }
+
 }
 
 .banner{
-    @include flexbox();
+    /* @include flexbox(); */
     height: 100vh;
-    @include justify-content(center);
-    @include align-items(center);
+    /* @include justify-content(center); */
+    /* include align-items(center); */
     color: white;
     text-align: left;
 
     .banner-text{
+      display: block;
+      position: absolute;
+      bottom: 5%;
+      left: 1rem;
+      font-size: 2.4em;
+      font-weight: bold;
+
       h1{
-        -ms-transform: skewY(20deg); /* IE 9 */
-        -webkit-transform: skewY(20deg); /* Safari */
-        transform: skewY(20deg);
-        margin-bottom: 575px;
-        margin-left: 300px;
-        font-weight: bold;
-        font-size: 5rem;
+        text-shadow: 0px 0px 10px rgba(0, 159, 227, 1);
       }
+
+      @media(min-width: 375px){
+       font-size: 3em;
+      }
+
+      @media(min-width: 414px){
+       font-size: 3.2em;
+      }
+
+      @include breakpoint(tablet){
+        left: 2rem;
+        font-size: 1.4em;
+      }
+
+      @include breakpoint(desktop){
+        left: 10%;
+      }
+
+      @include breakpoint(desktop-wide){
+        font-size: 1em;
+        bottom: 8%;
+      }
+
+      strong{
+        color: $light-grey;
+      }
+
+      /*
+      h1{
+        position: absolute;
+        bottom: 0;
+        left: 1rem;
+        @include translate(0,-50%);
+        font-weight: bold;
+        font-size: 2.4rem;
+
+        @media(min-width: 375px){
+          font-size: 2.8rem;
+          top: calc(50% + 210px);
+        }
+
+        @media(min-width: 414px){
+          font-size: 3.2rem;
+          top: calc(50% + 240px);
+        }
+
+        strong{
+          color: $light-grey;
+        }
+      }
+      */
     }
 
 
