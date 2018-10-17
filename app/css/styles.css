@@ -1,6 +1,6 @@
-/* COVER IMAGE */
 /* TRANSITION */
 /* Translate */
+/* HIGH PPI DISPLAY BACKGROUNDS */
 /** Usage:
 @include breakpoint(tablet) {}
 @include breakpoint(min-width, 1192px) {}
@@ -15,6 +15,8 @@ body {
   @media (min-width: 768px) {
     body {
       font-size: 4rem; } }
+  body.no-scroll {
+    overflow: hidden; }
 
 p, li, address {
   font-size: 0.85rem;
@@ -27,11 +29,6 @@ p, li, address {
     p, li, address {
       font-size: 1.25rem; } }
 
-/*
-h1{
-    font-size: 2rem;
-}
-*/
 h2 {
   font-size: 3.5rem;
   line-height: 1em;
@@ -131,10 +128,6 @@ section.section {
 /* LAZY IMG FOR CSS BACKGROUNDS */
 /* LOW-RES IMAGE MUST BE INCLUDED BELOW */
 .lazy-bg-img:after {
-  background-color: white;
-  background-image: url("../images/illo-woman-mobile-blur.png");
-  background-position: center center;
-  background-repeat: no-repeat;
   opacity: 0;
   filter: blur(15px);
   -moz-transition: opacity 4s ease;
@@ -145,10 +138,6 @@ section.section {
   transform: scale(1); }
 
 .lazy-bg-img.visible:after {
-  background-color: white;
-  background-image: url("../images/illo-woman-mobile-2x.png");
-  background-position: center center;
-  background-repeat: no-repeat;
   opacity: 1;
   filter: blur(0); }
 
@@ -160,7 +149,6 @@ section.section {
     position: relative;
     height: 300px;
     width: 100%;
-    background: grey;
     background-size: 100% auto; }
     @media (min-width: 768px) {
       .split-bg-img:after {
@@ -171,15 +159,20 @@ section.section {
         left: 50%; } }
   .split-bg-img.bg-woman:after {
     background-color: white;
-    background-image: url("../images/illo-woman-mobile-blur.png");
+    background-image: url("../images/illo-woman-mobile@blur.png");
+    background-size: auto 100%;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: auto 100%; }
   .split-bg-img.bg-woman.visible:after {
     background-color: white;
-    background-image: url("../images/illo-woman-mobile-2x.png");
+    background-image: url("../images/illo-woman-mobile@1x.png");
+    background-size: auto 100%;
     background-position: center center;
     background-repeat: no-repeat; }
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      .split-bg-img.bg-woman.visible:after {
+        background-image: url("../images/illo-woman-mobile@2x.png"); } }
     @media (min-width: 768px) {
       .split-bg-img.bg-woman.visible:after {
         background-size: 90% auto;
@@ -193,15 +186,20 @@ section.section {
         background-position: left center; } }
   .split-bg-img.bg-submit:after {
     background-color: #0092fe;
-    background-image: url("../images/illo-submit-blur.png");
+    background-image: url("../images/illo-submit@blur.png");
+    background-size: auto 80%;
     background-position: center calc(50% + 20%);
     background-repeat: no-repeat;
     background-size: auto 80%; }
   .split-bg-img.bg-submit.visible:after {
     background-color: #0092fe;
-    background-image: url("../images/illo-submit-2x.png");
+    background-image: url("../images/illo-submit@1x.png");
+    background-size: auto 80%;
     background-position: center calc(50% + 20%);
     background-repeat: no-repeat; }
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      .split-bg-img.bg-submit.visible:after {
+        background-image: url("../images/illo-submit@2x.png"); } }
     @media (min-width: 768px) {
       .split-bg-img.bg-submit.visible:after {
         background-size: auto 70%; } }
@@ -211,15 +209,19 @@ section.section {
   .split-bg-img.bg-tablet:after {
     left: 0;
     background-color: #f8f8f8;
-    background-image: url("../images/illo-tablet-blur.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: auto 60%; }
-  .split-bg-img.bg-tablet.visible:after {
-    background-color: #f8f8f8;
-    background-image: url("../images/illo-tablet-2x.png");
+    background-image: url("../images/illo-tablet@blur.png");
+    background-size: auto 60%;
     background-position: center center;
     background-repeat: no-repeat; }
+  .split-bg-img.bg-tablet.visible:after {
+    background-color: #f8f8f8;
+    background-image: url("../images/illo-tablet@1x.png");
+    background-size: auto 60%;
+    background-position: center center;
+    background-repeat: no-repeat; }
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      .split-bg-img.bg-tablet.visible:after {
+        background-image: url("../images/illo-tablet@2x.png"); } }
     @media (min-width: 768px) {
       .split-bg-img.bg-tablet.visible:after {
         background-size: 80% auto;
@@ -229,28 +231,38 @@ section.section {
         background-size: auto 55%; } }
   .split-bg-img.bg-laptop:after {
     background-color: white;
-    background-image: url("../images/illo-laptop-blur.png");
+    background-image: url("../images/illo-laptop@blur.png");
+    background-size: auto 80%;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: auto 80%; }
   .split-bg-img.bg-laptop.visible:after {
     background-color: white;
-    background-image: url("../images/illo-laptop-2x.png");
+    background-image: url("../images/illo-laptop@1x.png");
+    background-size: auto 80%;
     background-position: center center;
     background-repeat: no-repeat; }
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      .split-bg-img.bg-laptop.visible:after {
+        background-image: url("../images/illo-laptop@2x.png"); } }
     @media (min-width: 768px) and (max-width: 1024px) {
       .split-bg-img.bg-laptop.visible:after {
         background-size: auto 50%; } }
   .split-bg-img.bg-location:after {
     background-color: #03edc6;
-    background-image: url("../images/illo-billboard-blur.png");
+    background-image: url("../images/illo-billboard@blur.png");
+    background-size: 100% auto;
     background-position: center center;
     background-repeat: no-repeat; }
   .split-bg-img.bg-location.visible:after {
     background-color: #03edc6;
-    background-image: url("../images/illo-billboard-2x.png");
+    background-image: url("../images/illo-billboard@1x.png");
+    background-size: 100% auto;
     background-position: center center;
     background-repeat: no-repeat; }
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      .split-bg-img.bg-location.visible:after {
+        background-image: url("../images/illo-billboard@2x.png"); } }
     @media (min-width: 480px) {
       .split-bg-img.bg-location.visible:after {
         background-position: center bottom; } }
@@ -260,42 +272,54 @@ section.section {
   .split-bg-img.bg-laptop-viewers:after {
     left: 0;
     background-color: transparent;
-    background-image: url("../images/illo-laptop-viewers-blur.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: auto 80%; }
-  .split-bg-img.bg-laptop-viewers.visible:after {
-    background-color: transparent;
-    background-image: url("../images/illo-laptop-viewers-2x.png");
+    background-image: url("../images/illo-laptop-viewers@blur.png");
+    background-size: auto 80%;
     background-position: center center;
     background-repeat: no-repeat; }
+  .split-bg-img.bg-laptop-viewers.visible:after {
+    background-color: transparent;
+    background-image: url("../images/illo-laptop-viewers@1x.png");
+    background-size: auto 80%;
+    background-position: center center;
+    background-repeat: no-repeat; }
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      .split-bg-img.bg-laptop-viewers.visible:after {
+        background-image: url("../images/illo-laptop-viewers@2x.png"); } }
     @media (min-width: 1280px) {
       .split-bg-img.bg-laptop-viewers.visible:after {
         background-size: auto 90%;
         background-position: right 100px center; } }
   .split-bg-img.bg-address:after {
     background-color: #03edc6;
-    background-image: url("../images/illo-location-blur.png");
-    background-position: center 60%;
-    background-repeat: no-repeat;
-    background-size: auto 80%; }
+    background-image: url("../images/illo-location@blur.png");
+    background-size: auto 80%;
+    background-position: center center;
+    background-repeat: no-repeat; }
   .split-bg-img.bg-address.visible:after {
     background-color: #03edc6;
-    background-image: url("../images/illo-location-2x.png");
-    background-position: center 60%;
+    background-image: url("../images/illo-location@1x.png");
+    background-size: auto 80%;
+    background-position: center center;
     background-repeat: no-repeat; }
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      .split-bg-img.bg-address.visible:after {
+        background-image: url("../images/illo-location@2x.png"); } }
   .split-bg-img.bg-connect:after {
     left: 0;
-    background-color: white;
-    background-image: url("../images/illo-social-blur.png");
-    background-position: center 60%;
-    background-repeat: no-repeat;
-    background-size: auto 80%; }
-  .split-bg-img.bg-connect.visible:after {
-    background-color: white;
-    background-image: url("../images/illo-social-2x.png");
+    background-color: transparent;
+    background-image: url("../images/illo-social@blur.png");
+    background-size: auto 80%;
     background-position: center 60%;
     background-repeat: no-repeat; }
+  .split-bg-img.bg-connect.visible:after {
+    background-color: transparent;
+    background-image: url("../images/illo-social@1x.png");
+    background-size: auto 80%;
+    background-position: center 60%;
+    background-repeat: no-repeat; }
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      .split-bg-img.bg-connect.visible:after {
+        background-image: url("../images/illo-social@2x.png"); } }
     @media (min-width: 768px) {
       .split-bg-img.bg-connect.visible:after {
         background-size: 60% auto; } }
@@ -425,11 +449,18 @@ section.section {
   @media (min-width: 768px) {
     .header {
       height: 90px; } }
-  .header.scrolling-down {
+  .header.hidden {
     top: -62.5px; }
     @media (min-width: 768px) {
-      .header.scrolling-down {
+      .header.hidden {
         top: -90px; } }
+  .header img {
+    -moz-transition: opacity 0.75s ease;
+    -o-transition: opacity 0.75s ease;
+    -webkit-transition: opacity 0.75s ease;
+    transition: opacity 0.75s ease; }
+  .header.menu-open img {
+    opacity: 0; }
   .header img {
     max-width: 100px; }
     @media (min-width: 768px) {
@@ -438,23 +469,104 @@ section.section {
 
 /* MENU */
 .nav-button {
-  float: right;
   position: absolute;
   top: 0;
   right: 0;
   display: block;
+  height: 62.5px;
+  width: 62.5px;
+  cursor: pointer; }
+  @media (min-width: 768px) {
+    .nav-button {
+      height: 90px;
+      width: 90px; } }
+  .nav-button .menu-burger {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 47%;
+    height: 47%;
+    transform: translate(-50%, -50%); }
+    @media (min-width: 1280px) {
+      .nav-button .menu-burger {
+        width: 54%;
+        height: 54%; } }
+    .nav-button .menu-burger .line {
+      display: block;
+      width: 100%;
+      height: 16%;
+      background: white;
+      border-radius: 4px;
+      -moz-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+      position: absolute; }
+      .nav-button .menu-burger .line.line-1 {
+        top: 0;
+        left: 0; }
+      .nav-button .menu-burger .line.line-2 {
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%; }
+      .nav-button .menu-burger .line.line-3 {
+        bottom: 0;
+        left: 0; }
+    .nav-button .menu-burger.active .line-1 {
+      transform: translate(-50%, -50%) rotate(45deg);
+      top: 50%;
+      left: 50%; }
+    .nav-button .menu-burger.active .line-2 {
+      opacity: 0;
+      left: 300%; }
+    .nav-button .menu-burger.active .line-3 {
+      transform: translate(-50%, 50%) rotate(-45deg);
+      bottom: 50%;
+      left: 50%; }
+
+.menu {
+  width: 100%;
   height: 100%;
-  width: 100px;
-  background-color: red;
-  background-image: url("../images/icon-menu.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: auto 60%; }
+  position: fixed;
+  top: 0;
+  right: -100%;
+  display: block;
+  background: #0092fe;
+  opacity: 0.95;
+  color: white;
+  box-sizing: border-box;
+  z-index: 1;
+  -moz-transition: right 0.5s ease;
+  -o-transition: right 0.5s ease;
+  -webkit-transition: right 0.5s ease;
+  transition: right 0.5s ease; }
+  .menu .menu-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1200px; }
+    .menu .menu-inner ul li {
+      font-size: 1rem;
+      font-weight: bold; }
+      @media (min-width: 768px) {
+        .menu .menu-inner ul li {
+          font-size: 1.6rem; } }
+      .menu .menu-inner ul li:last-child {
+        margin-bottom: 0; }
+      .menu .menu-inner ul li a {
+        text-decoration: none;
+        border-bottom: 2px solid #03edc6; }
+  .menu.visible {
+    right: 0; }
 
 /* BANNER */
 .main-bg {
   background-color: #0092fe;
-  background-image: url("../images/illo-main-blur.png");
+  background-image: url("../images/illo-main@blur.png");
+  background-size: auto 60%;
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 0;
@@ -467,21 +579,27 @@ section.section {
   transform: scale(1); }
   .main-bg.visible {
     background-color: #0092fe;
-    background-image: url("../images/illo-main-2x.png");
-    background-position: left center;
-    background-repeat: no-repeat;
+    background-image: url("../images/illo-main@1x.png");
     background-size: auto 60%;
     background-position: left calc(50% - 30px);
+    background-repeat: no-repeat;
     opacity: 1;
     filter: blur(0); }
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      .main-bg.visible {
+        background-image: url("../images/illo-main@2x.png"); } }
+    @media (min-width: 768px) {
+      .main-bg.visible {
+        background-position: center calc(50% - 30px);
+        background-size: auto 60%; } }
     @media (min-width: 1280px) {
       .main-bg.visible {
         background-position: center calc(50% - 30px);
-        background-size: auto 80%; } }
+        background-size: auto 70%; } }
     @media (min-width: 1500px) {
       .main-bg.visible {
         background-position: center calc(50% - 80px);
-        background-size: auto 70%; } }
+        background-size: auto 80%; } }
 
 .banner {
   /* @include flexbox(); */
@@ -496,31 +614,7 @@ section.section {
     bottom: 5%;
     left: 1rem;
     font-size: 2.4em;
-    font-weight: bold;
-    /*
-      h1{
-        position: absolute;
-        bottom: 0;
-        left: 1rem;
-        @include translate(0,-50%);
-        font-weight: bold;
-        font-size: 2.4rem;
-
-        @media(min-width: 375px){
-          font-size: 2.8rem;
-          top: calc(50% + 210px);
-        }
-
-        @media(min-width: 414px){
-          font-size: 3.2rem;
-          top: calc(50% + 240px);
-        }
-
-        strong{
-          color: $light-grey;
-        }
-      }
-      */ }
+    font-weight: bold; }
     .banner .banner-text h1 {
       text-shadow: 0px 0px 10px #009fe3; }
     @media (min-width: 375px) {
@@ -538,7 +632,7 @@ section.section {
         left: 10%; } }
     @media (min-width: 1500px) {
       .banner .banner-text {
-        font-size: 1em;
+        font-size: 1.4em;
         bottom: 8%; } }
     .banner .banner-text strong {
       color: #f8f8f8; }
@@ -546,24 +640,21 @@ section.section {
 /* ROPTO IN NUMBERS */
 .ropto-in-numbers-bg {
   background-color: #f8f8f8;
-  background-image: url("../images/bg-city.png");
+  background-image: url("../images/bg-city@1x.png");
+  background-size: 275% auto;
   background-position: left bottom 8rem;
-  background-repeat: no-repeat;
-  background-size: 275% auto; }
+  background-repeat: no-repeat; }
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+    .ropto-in-numbers-bg {
+      background-image: url("../images/bg-city@2x.png"); } }
   @media (min-width: 768px) {
     .ropto-in-numbers-bg {
-      background-color: #f8f8f8;
-      background-image: url("../images/bg-city.png");
-      background-position: left bottom 7.5rem;
-      background-repeat: no-repeat;
-      background-size: 150% auto; } }
+      background-size: 150% auto;
+      background-position: left bottom 7.5rem; } }
   @media (min-width: 1280px) {
     .ropto-in-numbers-bg {
-      background-color: #f8f8f8;
-      background-image: url("../images/bg-city.png");
-      background-position: left bottom 0;
-      background-repeat: no-repeat;
-      background-size: 100% auto; } }
+      background-size: 100% auto;
+      background-position: left bottom 0; } }
 
 .container.ropto-in-numbers {
   padding-bottom: 8rem; }
@@ -615,13 +706,16 @@ section.section {
         bottom: -90px;
         right: -20px;
         background-color: transparent;
-        background-image: url("../images/illo-man-looking-up.png");
+        background-image: url("../images/illo-man-looking-up@1x.png");
+        background-size: auto 100%;
         background-position: right center;
         background-repeat: no-repeat;
-        background-size: auto 100%;
         width: 200px;
         height: 250px;
         display: block; }
+        @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+          .container.ropto-in-numbers .ropto-numbers > ul:after {
+            background-image: url("../images/illo-man-looking-up@2x.png"); } }
         @media (min-width: 768px) {
           .container.ropto-in-numbers .ropto-numbers > ul:after {
             bottom: -150px;
@@ -638,57 +732,85 @@ section.section {
     padding: 4rem 0; } }
 
 /* CASE STUDIES */
-.case-studies li {
-  position: relative;
-  font-weight: 700;
-  margin-bottom: 3rem; }
-  .case-studies li p {
-    margin-bottom: 0; }
-  @media (min-width: 1280px) {
-    .case-studies li br {
-      display: none; } }
-
-.case-studies button {
-  font-size: 0.75em;
-  font-weight: inherit;
-  color: inherit;
-  background: #03edc6;
-  border-radius: 4px;
-  padding: 1rem 4rem 1rem 1rem;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-  -moz-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
-  -o-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  cursor: pointer;
-  -moz-transition: color 0.5s ease, background 0.5s ease;
-  -o-transition: color 0.5s ease, background 0.5s ease;
-  -webkit-transition: color 0.5s ease, background 0.5s ease;
-  transition: color 0.5s ease, background 0.5s ease; }
-  .case-studies button:hover {
-    background: #0fb69a;
-    color: white; }
-  .case-studies button:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    -webkit-transform: translate(0, -50%);
-    -moz-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    -o-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    background-color: transparent;
-    background-image: url("../images/icon-download.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: auto 100%; }
+.case-studies ul {
+  max-width: 400px;
+  display: block;
+  margin: auto; }
+  @media (min-width: 768px) {
+    .case-studies ul {
+      max-width: 100%; } }
+  .case-studies ul li {
+    position: relative;
+    font-weight: 700;
+    margin-bottom: 1.6rem;
+    text-align: center; }
+    @media (min-width: 400px) {
+      .case-studies ul li {
+        text-align: left;
+        margin-bottom: 3rem; } }
+    .case-studies ul li p {
+      margin-bottom: 0; }
+      @media (min-width: 400px) {
+        .case-studies ul li p {
+          max-width: 55%; } }
+      @media (min-width: 768px) {
+        .case-studies ul li p {
+          max-width: 50%; } }
+      @media (min-width: 1280px) {
+        .case-studies ul li p {
+          max-width: 70%; } }
+    .case-studies ul li button {
+      font-size: 0.75em;
+      font-weight: inherit;
+      color: inherit;
+      background: #03edc6;
+      border-radius: 4px;
+      padding: 1rem 4rem 1rem 1rem;
+      cursor: pointer;
+      position: relative;
+      margin-top: 0.6rem;
+      width: 80%;
+      text-align: left; }
+      .case-studies ul li button:hover {
+        background: #0fb69a;
+        color: white; }
+      .case-studies ul li button:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        -webkit-transform: translate(0, -50%);
+        -moz-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        -o-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        background-color: transparent;
+        background-image: url("../images/icon-download@1x.png");
+        background-size: auto 100%;
+        background-position: center center;
+        background-repeat: no-repeat; }
+        @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+          .case-studies ul li button:after {
+            background-image: url("../images/icon-download@2x.png"); } }
+      @media (min-width: 400px) {
+        .case-studies ul li button {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          -moz-transform: translate(0, -50%);
+          -ms-transform: translate(0, -50%);
+          -o-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          -moz-transition: color 0.5s ease, background 0.5s ease;
+          -o-transition: color 0.5s ease, background 0.5s ease;
+          -webkit-transition: color 0.5s ease, background 0.5s ease;
+          transition: color 0.5s ease, background 0.5s ease;
+          width: auto;
+          margin-top: 0; } }
 
 /* TESTIMONIALS */
 .testimonial {
@@ -761,15 +883,14 @@ section.section {
       -o-transition: opacity 1s ease;
       -webkit-transition: opacity 1s ease;
       transition: opacity 1s ease;
-      background-color: transparent;
-      background-image: url("../images/icon-chevron-small.png");
+      background: url("../images/icon-chevron-small.png");
       background-position: center center;
+      background-color: transparent;
       background-repeat: no-repeat;
       background-size: auto 100%; }
       @media (min-width: 480px) {
         .testimonial .testimonial-inner button {
-          background-color: transparent;
-          background-image: url("../images/icon-chevron-large.png");
+          background: url("../images/icon-chevron-large.png");
           background-position: center center;
           background-repeat: no-repeat;
           background-size: 100% auto;

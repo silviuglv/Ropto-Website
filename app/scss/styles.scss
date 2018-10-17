@@ -10,9 +10,13 @@ body{
     color: $font-dark;
 
     @include breakpoint(tablet){
-            font-size: 4rem;
+      //DEV NOTE - NEEDS FIXED
+        font-size: 4rem;
     }
 
+    &.no-scroll{
+      overflow: hidden;
+    }
 
 }
 
@@ -29,12 +33,6 @@ p, li, address{
             font-size: 1.25rem;
     }
 }
-
-/*
-h1{
-    font-size: 2rem;
-}
-*/
 
 h2{
     font-size: 3.5rem;
@@ -197,11 +195,8 @@ section.section{
 .lazy-bg-img{
 
     &:after{
-        @include background('../images/illo-woman-mobile-blur.png',$position:center center, $color: white);
-
         opacity: 0;
         filter: blur(15px);
-
         @include transition(opacity 4s ease);
 
         /* this is needed so Safari keeps sharp edges */
@@ -209,10 +204,7 @@ section.section{
     }
 
     &.visible:after{
-        @include background('../images/illo-woman-mobile-2x.png',$position:center center, $color: white);
-
         opacity: 1;
-
         filter: blur(0);
     }
 
@@ -228,7 +220,6 @@ section.section{
         position: relative;
         height: 300px;
         width: 100%;
-        background: grey;
         background-size: 100% auto;
 
          @include breakpoint(tablet){
@@ -243,12 +234,13 @@ section.section{
     &.bg-woman{
 
       &:after{
-        @include background('../images/illo-woman-mobile-blur.png',$position:center center, $color: white);
+        @include background-2x( '../images/illo-woman-mobile', 'png', auto, 100%, center center, no-repeat, white, blur );
         background-size: auto 100%;
       }
 
       &.visible:after{
-        @include background('../images/illo-woman-mobile-2x.png',$position:center center, $color: white);
+        @include background-2x( '../images/illo-woman-mobile', 'png', auto, 100%, center center, no-repeat,  white );
+
 
         @include breakpoint(tablet){
             background-size: 90% auto;
@@ -270,12 +262,12 @@ section.section{
     &.bg-submit{
 
       &:after{
-        @include background('../images/illo-submit-blur.png',$position: center calc(50% + 20%), $color: $mid-blue);
+        @include background-2x( '../images/illo-submit', 'png', auto, 80%, center calc(50% + 20%), no-repeat, $mid-blue, blur );
         background-size: auto 80%;
       }
 
       &.visible:after{
-          @include background('../images/illo-submit-2x.png',$position: center calc(50% + 20%), $color: $mid-blue);
+          @include background-2x( '../images/illo-submit', 'png', auto, 80%, center calc(50% + 20%), no-repeat, $mid-blue );
 
           @include breakpoint(tablet){
               background-size: auto 70%;
@@ -292,13 +284,11 @@ section.section{
 
       &:after{
         left: 0;
-
-        @include background('../images/illo-tablet-blur.png',$position:center center, $color: $light-grey);
-        background-size: auto 60%;
+        @include background-2x( '../images/illo-tablet', 'png', auto, 60%, center center, no-repeat, $light-grey, blur );
       }
 
       &.visible:after{
-          @include background('../images/illo-tablet-2x.png',$position:center center, $color: $light-grey);
+          @include background-2x( '../images/illo-tablet', 'png', auto, 60%, center center, no-repeat, $light-grey);
 
           @include breakpoint(tablet){
               background-size: 80% auto;
@@ -315,12 +305,12 @@ section.section{
     &.bg-laptop{
 
         &:after{
-            @include background('../images/illo-laptop-blur.png',$position:center center, $color: white);
+            @include background-2x( '../images/illo-laptop', 'png', auto, 80%, center center, no-repeat, white, blur );
             background-size: auto 80%;
         }
 
         &.visible:after{
-            @include background('../images/illo-laptop-2x.png',$position:center center, $color: white);
+            @include background-2x( '../images/illo-laptop', 'png', auto, 80%, center center, no-repeat, white);
 
             @include between-breakpoints($tablet, $tablet-horizontal){
                 background-size: auto 50%;
@@ -330,10 +320,10 @@ section.section{
 
     &.bg-location{
       &:after{
-        @include background('../images/illo-billboard-blur.png',$position:center center, $color: $light-green);
+        @include background-2x( '../images/illo-billboard', 'png', 100%, auto, center center, no-repeat, $light-green, blur);
       }
       &.visible:after{
-          @include background('../images/illo-billboard-2x.png',$position:center center, $color: $light-green);
+          @include background-2x( '../images/illo-billboard', 'png', 100%, auto, center center, no-repeat, $light-green);
 
           @include breakpoint(mobile-horizontal){
               background-position: center bottom;
@@ -349,12 +339,10 @@ section.section{
 
       &:after{
         left: 0;
-
-        @include background('../images/illo-laptop-viewers-blur.png',$position:center center, $color: transparent);
-        background-size: auto 80%;
+        @include background-2x( '../images/illo-laptop-viewers', 'png', auto, 80%, center center, no-repeat, transparent, blur);
       }
       &.visible:after{
-          @include background('../images/illo-laptop-viewers-2x.png',$position:center center, $color: transparent);
+          @include background-2x( '../images/illo-laptop-viewers', 'png', auto, 80%, center center, no-repeat, transparent);
 
           @include breakpoint(desktop){
             background-size: auto 90%;
@@ -366,12 +354,11 @@ section.section{
     &.bg-address{
 
       &:after{
-        @include background('../images/illo-location-blur.png',$position:center 60%, $color: $light-green);
-        background-size: auto 80%;
+        @include background-2x( '../images/illo-location', 'png', auto, 80%, center center, no-repeat, $light-green, blur);
       }
 
       &.visible:after{
-        @include background('../images/illo-location-2x.png',$position:center 60%, $color: $light-green);
+        @include background-2x( '../images/illo-location', 'png', auto, 80%, center center, no-repeat, $light-green);
       }
     }
 
@@ -380,12 +367,11 @@ section.section{
       &:after{
         left: 0;
 
-        @include background('../images/illo-social-blur.png',$position:center 60%, $color: white);
-        background-size: auto 80%;
+        @include background-2x( '../images/illo-social', 'png', auto, 80%, center 60%, no-repeat, transparent, blur);
       }
 
       &.visible:after{
-        @include background('../images/illo-social-2x.png',$position:center 60%, $color: white);
+        @include background-2x( '../images/illo-social', 'png', auto, 80%, center 60%, no-repeat, transparent);
 
         @include breakpoint(tablet){
           background-size: 60% auto;
@@ -545,12 +531,22 @@ section.section{
         height: 90px;
     }
 
-    &.scrolling-down{
+    &.hidden{
         top: -62.5px;
 
         @include breakpoint(tablet){
             top: -90px;
         }
+    }
+
+    img{
+      @include transition(opacity 0.75s ease);
+    }
+
+    &.menu-open{
+      img{
+        opacity: 0;
+      }
     }
 
     img{
@@ -565,21 +561,132 @@ section.section{
 /* MENU */
 
 .nav-button{
-  float: right;
   position: absolute;
   top: 0;
   right: 0;
   display: block;
-  height: 100%;
-  width: 100px;
-  @include background('../images/icon-menu.png',$position:center center, $color: red);
-  background-size: auto 60%;
+  height: 62.5px;
+  width: 62.5px;
+  cursor: pointer;
+
+  @include breakpoint(tablet){
+    height: 90px;
+    width: 90px;
+  }
+
+  .menu-burger{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 47%;
+    height: 47%;
+    transform: translate(-50%, -50%);
+
+    @include breakpoint(desktop){
+      width: 54%;
+      height: 54%;
+    }
+
+    .line{
+      display: block;
+      width: 100%;
+      height: 16%;
+      background: white;
+      border-radius: 4px;
+      @include transition(all .2s ease);
+      position: absolute;
+
+      &.line-1{
+        top: 0;
+        left: 0;
+      }
+
+      &.line-2{
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+      }
+
+      &.line-3{
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    &.active{
+      .line-1{
+        transform: translate(-50%, -50%) rotate(45deg);
+        top: 50%;
+        left: 50%;
+      }
+
+      .line-2{
+        opacity: 0;
+        left: 300%;
+      }
+
+      .line-3{
+        transform: translate(-50%, 50%) rotate(-45deg);
+        bottom: 50%;
+        left: 50%;
+      }
+    }
+  }
 }
+
+.menu{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  display: block;
+  background: $mid-blue;
+  opacity: 0.95;
+  color: white;
+  box-sizing: border-box;
+  z-index: 1;
+  @include transition(right .5s ease);
+
+  .menu-inner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1200px;
+    ul{
+      li{
+        font-size: 1rem;
+        font-weight: bold;
+
+        @include breakpoint(tablet){
+          font-size: 1.6rem;
+        }
+
+        &:last-child{
+          margin-bottom: 0;
+        }
+        a{
+          text-decoration: none;
+          border-bottom: 2px solid $light-green;
+        }
+      }
+    }
+  }
+
+  &.visible{
+    right: 0;
+  }
+
+}
+
 
 /* BANNER */
 
 .main-bg{
-  @include background('../images/illo-main-blur.png',$position:center center, $color: $mid-blue);
+  @include background-2x( '../images/illo-main', 'png', auto, 60%, center center, no-repeat, $mid-blue, blur );
   opacity: 0;
   filter: blur(15px);
   @include transition(opacity 2.5s ease);
@@ -588,21 +695,23 @@ section.section{
   transform: scale(1);
 
   &.visible{
-    @include background('../images/illo-main-2x.png',$position:left center, $color: $mid-blue);
-    background-size: auto 60%;
-    background-position: left calc(50% - 30px);
+    @include background-2x( '../images/illo-main', 'png', auto, 60%, left calc(50% - 30px), no-repeat, $mid-blue );
     opacity: 1;
     filter: blur(0);
 
+    @include breakpoint(tablet){
+        background-position: center calc(50% - 30px);
+        background-size: auto 60%;
+    }
 
     @include breakpoint(desktop){
         background-position: center calc(50% - 30px);
-        background-size: auto 80%;
+        background-size: auto 70%;
     }
 
     @include breakpoint(desktop-wide){
         background-position: center calc(50% - 80px);
-        background-size: auto 70%;
+        background-size: auto 80%;
     }
   }
 
@@ -646,38 +755,13 @@ section.section{
       }
 
       @include breakpoint(desktop-wide){
-        font-size: 1em;
+        font-size: 1.4em;
         bottom: 8%;
       }
 
       strong{
         color: $light-grey;
       }
-
-      /*
-      h1{
-        position: absolute;
-        bottom: 0;
-        left: 1rem;
-        @include translate(0,-50%);
-        font-weight: bold;
-        font-size: 2.4rem;
-
-        @media(min-width: 375px){
-          font-size: 2.8rem;
-          top: calc(50% + 210px);
-        }
-
-        @media(min-width: 414px){
-          font-size: 3.2rem;
-          top: calc(50% + 240px);
-        }
-
-        strong{
-          color: $light-grey;
-        }
-      }
-      */
     }
 
 
@@ -687,17 +771,16 @@ section.section{
 /* ROPTO IN NUMBERS */
 
 .ropto-in-numbers-bg{
-    @include background('../images/bg-city.png',$position:left bottom 8rem, $color: $light-grey);
-    background-size: 275% auto;
+    @include background-2x( '../images/bg-city', 'png', 275%, auto, left bottom 8rem, no-repeat, $light-grey );
 
     @include breakpoint(tablet){
-        @include background('../images/bg-city.png',$position:left bottom 7.5rem, $color: $light-grey);
         background-size: 150% auto;
+        background-position: left bottom 7.5rem;
     }
 
     @include breakpoint(desktop){
-        @include background('../images/bg-city.png',$position:left bottom 0, $color: $light-grey);
         background-size: 100% auto;
+        background-position: left bottom 0;
     }
 
 }
@@ -776,8 +859,7 @@ section.section{
                 bottom: -90px;
                 right: -20px;
 
-                @include background('../images/illo-man-looking-up.png',$position:right center,$repeat: no-repeat);
-                background-size: auto 100%;
+                @include background-2x( '../images/illo-man-looking-up', 'png', auto, 100%, right center, no-repeat, transparent );
 
                 width: 200px;
                 height: 250px;
@@ -811,42 +893,63 @@ section.section{
 /* CASE STUDIES */
 
 .case-studies{
+
+  ul{
+    max-width: 400px;
+    display: block;
+    margin: auto;
+
+    @include breakpoint(tablet){
+      max-width: 100%;
+    }
+
     li{
         position: relative;
         font-weight: $mid;
-        margin-bottom: 3rem;
+        margin-bottom: 1.6rem;
+        text-align: center;
+
+        @media(min-width: 400px){
+          text-align: left;
+          margin-bottom: 3rem;
+        }
 
         p{
             margin-bottom: 0;
-        }
 
-        br{
+            @media(min-width: 400px){
+              max-width: 55%;
+            }
+
+            @include breakpoint(tablet){
+                  max-width: 50%;
+            }
+
             @include breakpoint(desktop){
-                display: none;
+                  max-width: 70%;
             }
         }
-    }
 
-    button{
-        font-size: 0.75em;
-        font-weight: inherit;
-        color: inherit;
-        background: $light-green;
-        border-radius: 4px;
-        padding: 1rem 4rem 1rem 1rem;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        @include translate(0,-50%);
-        cursor: pointer;
-        @include transition(color 0.5s ease, background 0.5s ease);
+        button{
 
-        &:hover{
+          font-size: 0.75em;
+          font-weight: inherit;
+          color: inherit;
+          background: $light-green;
+          border-radius: 4px;
+          padding: 1rem 4rem 1rem 1rem;
+          cursor: pointer;
+          position: relative;
+          margin-top: 0.6rem;
+          width: 80%;
+          text-align: left;
+
+          &:hover{
             background: $dark-green;
             color: white;
-        }
+          }
 
-        &:after{
+          &:after{
             content: "";
             display: block;
             position: absolute;
@@ -855,10 +958,24 @@ section.section{
             width: 1.5rem;
             height: 1.5rem;
             @include translate(0,-50%);
-            @include background('../images/icon-download.png',$position:center center,$repeat: no-repeat);
-                background-size: auto 100%;
+            @include background-2x( '../images/icon-download', 'png', auto, 100%, center center, no-repeat, transparent );
+          }
+
+          @media(min-width: 400px){
+            position: absolute;
+            right: 0;
+            top: 50%;
+            @include translate(0,-50%);
+            @include transition(color 0.5s ease, background 0.5s ease);
+            width: auto;
+            margin-top: 0;
+          }
         }
+
     }
+
+  }
+
 }
 
 
@@ -947,12 +1064,17 @@ section.section{
         opacity: 0.4;
         @include transition(opacity 1s ease);
 
-        @include background('../images/icon-chevron-small.png',$position:center center, $color: transparent);
+        background: url('../images/icon-chevron-small.png');
+        background-position: center center;
+        background-color: transparent;
+        background-repeat: no-repeat;
         background-size: auto 100%;
 
         @include breakpoint(mobile-horizontal){
 
-            @include background('../images/icon-chevron-large.png',$position:center center, $color: transparent);
+            background: url('../images/icon-chevron-large.png');
+            background-position: center center;
+            background-repeat: no-repeat;
             background-size: 100% auto;
 
             margin-top: 0;
