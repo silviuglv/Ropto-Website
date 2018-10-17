@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -6,8 +6,11 @@
 
     <title>Ropto</title>
     <meta name="description" content="Lorem Ipsum">
-    <meta name="author" content="SitePoint">
+    <meta name="author" content="Ropto Ltd">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 
 
     <!--build:css css/styles.min.css-->
@@ -22,28 +25,33 @@
 
 <body>
 
+  <div class="menu" id="menu">
+    <div class="menu-inner">
+      <ul>
+        <li><a class="scroll-link" href="#who-is-ropto">Who is Ropto?</a></li>
+        <li><a class="scroll-link" href="#ropto-in-numbers">Ropto in numbers</a></li>
+        <li><a class="scroll-link" href="#what-we-do">What we do</a></li>
+        <li><a class="scroll-link" href="#how-were-different">How we're different</a></li>
+        <li><a class="scroll-link" href="#how-we-do-it">How we do it</a></li>
+        <li><a class="scroll-link" href="#client-case-studies">Client case studies</a></li>
+        <li><a class="scroll-link" href="#testimonials">Testimonials</a></li>
+        <li><a class="scroll-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 
     <header class="header" id="header">
-        <img src="images/logo-ropto.png" alt="Ropto logo">
-        <div class="nav-button">
-          <!-- <img src="images/icon-menu.png" alt="Menu button"> -->
+        <a href="#" id="logo">
+          <img src="images/logo-ropto.png" alt="Ropto logo">
+        </a>
+        <div class="nav-button" id="nav-button">
+          <div class="menu-burger" id="menu-burger">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+          </div>
         </div>
-        <!--
-        <nav class="">
-          <ul>
-            <li>Who is Ropto?</li>
-            <li>Ropto in numbers</li>
-            <li>What we do</li>
-            <li>How we're different</li>
-            <li>How we do it</li>
-            <li>Client case studies</li>
-            <li>Testimonials</li>
-            <li>Contact</li>
-          </ul>
-        </nav>
-        -->
     </header>
-
 
     <!-- BANNER -->
     <section class="section main-bg lazy-bg lazy-bg-img">
@@ -56,7 +64,7 @@
 
 
     <!-- WHO IS ROPTO -->
-    <section class="section split-bg-img bg-woman lazy-bg lazy-bg-img">
+    <section class="section split-bg-img bg-woman lazy-bg lazy-bg-img" id="who-is-ropto">
         <div class="container">
             <div class="row">
                 <div class="col-6">
@@ -66,16 +74,13 @@
                     </p>
                 </div>
                 <div class="col-6">
-                    <!--
-                    <img class="lazy-img image image-xl" src="images/illo-woman-mobile-blur.jpg" data-src="images/illo-woman-mobile-1x.png, images/illo-woman-mobile-2x.png" data-srcset="images/illo-woman-mobile-1x.png 1x, images/illo-woman-mobile-2x.png 2x" width="100%" height="auto">
-                    -->
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ROPTO IN NUMBERS -->
-    <section class="section light-grey-bg ropto-in-numbers-bg">
+    <section class="section light-grey-bg ropto-in-numbers-bg" id="ropto-in-numbers">
         <div class="container ropto-in-numbers">
             <div class="ropto-numbers">
                 <h2>Ropto in numbers</h2>
@@ -114,7 +119,7 @@
     </section>
 
     <!-- WHAT WE DO -->
-    <section class="section mid-blue-bg split-bg-img bg-laptop lazy-bg lazy-bg-img">
+    <section class="section mid-blue-bg split-bg-img bg-laptop lazy-bg lazy-bg-img" id="what-we-do">
         <div class="container">
             <div class="row">
                 <div class="col-6">
@@ -126,16 +131,13 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <!--
-                    <img class="lazy-img image image-xl" src="images/illo-laptop-blur.jpg" data-src="images/illo-laptop-1x.png, images/illo-laptop-2x.png" data-srcset="images/illo-laptop-1x.png 1x, images/illo-laptop-2x.png 2x" width="100%" height="auto">
-                    -->
                 </div>
             </div>
         </div>
     </section>
 
     <!-- HOW WE ARE DIFFERENT -->
-    <section class="section light-grey-bg split-bg-img bg-tablet lazy-bg lazy-bg-img">
+    <section class="section light-grey-bg split-bg-img bg-tablet lazy-bg lazy-bg-img" id="how-were-different">
         <div class="container">
             <div class="row switch-cols">
                 <div class="col-6">
@@ -153,7 +155,7 @@
     </section>
 
     <!-- HOW WE DO IT -->
-    <section class="section split-bg-img bg-location lazy-bg lazy-bg-img">
+    <section class="section split-bg-img bg-location lazy-bg lazy-bg-img" id="how-we-do-it">
         <div class="container">
             <div class="row">
                 <div class="col-6">
@@ -168,9 +170,6 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <!--
-                    <img class="lazy-img image" src="images/illo-billboard-blur.jpg" data-src="images/illo-billboard-1x.png, images/illo-billboard-2x.png" data-srcset="images/illo-billboard-1x.png 1x, images/illo-billboard-2x.png 2x" width="100%" height="auto">
-                    -->
                 </div>
             </div>
         </div>
@@ -189,9 +188,6 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <!--
-                    <img class="lazy-img image" src="images/illo-laptop-viewers-blur.jpg" data-src="images/illo-laptop-viewers-1x.png, images/illo-laptop-viewers-2x.png" data-srcset="images/illo-laptop-viewers-1x.png 1x, images/illo-laptop-viewers-2x.png 2x" width="100%" height="auto">
-                    -->
                 </div>
             </div>
         </div>
@@ -212,16 +208,13 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <!--
-                    <img class="lazy-img image" src="images/illo-submit-blur.jpg" data-src="images/illo-submit-1x.png, images/illo-submit-2x.png" data-srcset="images/illo-submit-1x.png 1x, images/illo-submit-2x.png 2x" width="100%" height="auto">
-                    -->
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CASE STUDIES -->
-    <section class="section light-grey-bg case-studies">
+    <section class="section light-grey-bg case-studies" id="client-case-studies">
         <div class="container container-xl">
             <div class="row">
                 <div class="col-12 text-center">
@@ -245,7 +238,7 @@
                             </a>
                         </li>
                         <li>
-                            <p>Mis-sold Investments <br>Case study</p>
+                            <p>Mis-sold Investments Case study</p>
                             <a href="#">
                                 <button>Download</button>
                             </a>
@@ -315,7 +308,7 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="section mid-blue-bg testimonials">
+    <section class="section mid-blue-bg testimonials" id="testimonials">
         <div class="container container-xl">
             <div class="row">
                 <div class="col-12 text-center">
@@ -329,7 +322,7 @@
     </section>
 
     <!-- SAY HELLO -->
-    <section class="section contact split-bg-img bg-address lazy-bg lazy-bg-img">
+    <section class="section contact split-bg-img bg-address lazy-bg lazy-bg-img" id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-6">
@@ -343,7 +336,7 @@
                                     229 Ashley Road<br> Hale<br>
                                     WA15 9SX<br>
                                 </address>
-                                <a href="#">
+                                <a href="https://www.google.co.uk/maps/place/2nd+Floor,+229+Ashley+Rd,+Hale,+Altrincham+WA15+9SX/@53.375981,-2.345596,17z/data=!3m1!4b1!4m5!3m4!1s0x487bacb0e3d6c8d3:0x2dc12e9da3c2b829!8m2!3d53.375981!4d-2.3434073" target="_blank">
                                     <button>Google Maps</button>
                                 </a>
                             </div>
@@ -354,7 +347,7 @@
                                     Manchester<br>
                                     M3 3JE<br>
                                 </address>
-                                <a href="#">
+                                <a href="https://www.google.co.uk/maps/place/WeWork/@53.478986,-2.2519826,15z/data=!4m5!3m4!1s0x0:0xf599f92f0b17a76b!8m2!3d53.478986!4d-2.2519826" target="_blank">
                                     <button>Google Maps</button>
                                 </a>
                             </div>
@@ -362,9 +355,6 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <!--
-                    <img class="lazy-img image image-xl" src="images/illo-location-blur.jpg" data-src="images/illo-location-1x.png, images/illo-location-2x.png" data-srcset="images/illo-location-1x.png 1x, images/illo-location-2x.png 2x" width="100%" height="auto">
-                    -->
                 </div>
             </div>
         </div>
@@ -380,10 +370,10 @@
                         Click an icon once to check out our page. Click again to take you there so you can explore more.
                     </p>
                     <ul>
-                        <li><img src="images/icon-twitter.png" alt="Twitter icon"><a href="#"></a></li>
-                        <li><img src="images/icon-facebook.png" alt="Facebook icon"><a href="#"></a></li>
-                        <li><img src="images/icon-instagram.png" alt="Instagram icon"><a href="#"></a></li>
-                        <li><img src="images/icon-linkedin.png" alt="LinkedIn icon"><a href="#"></a></li>
+                        <li><img src="images/icon-twitter.png" alt="Twitter icon"><a href="https://twitter.com/ropto_leads" target="_blank"></a></li>
+                        <li><img src="images/icon-facebook.png" alt="Facebook icon"><a href="https://www.facebook.com/ropto" target="_blank"></a></li>
+                        <!--<li><img src="images/icon-instagram.png" alt="Instagram icon"><a href="#" target="_blank"></a></li>-->
+                        <li><img src="images/icon-linkedin.png" alt="LinkedIn icon"><a href="https://www.linkedin.com/company/ropto" target="_blank"></a></li>
                     </ul>
                 </div>
                 <div class="col-6">
@@ -400,11 +390,13 @@
         <p><a href="#">Cookie Policy</a> | <a href="#">Privacy Policy</a></p>
     </footer>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!--build:js js/main.min.js -->
-        <script src="js/scripts.js"></script>
         <script src="js/lazy-load.js"></script>
+        <script src="js/menu.js"></script>
         <script src="js/swipe.js"></script>
         <script src="js/text-carousel.js"></script>
     <!-- endbuild -->
+
 </body>
 </html>

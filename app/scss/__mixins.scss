@@ -1,14 +1,3 @@
-/* COVER IMAGE */
-
-@mixin background($imgpath,$position:0 0,$repeat: no-repeat, $color: transparent) {
-    background: {
-        color: $color;
-        image: url($imgpath);
-        position: $position;
-        repeat: $repeat;
-    }
-}
-
 /* TRANSITION */
 
 @mixin transition($transition...) {
@@ -27,4 +16,40 @@
       -ms-transform: translate($x, $y);
        -o-transform: translate($x, $y);
           transform: translate($x, $y);
+}
+
+
+
+/* HIGH PPI DISPLAY BACKGROUNDS */
+
+@mixin background-2x($path, $ext: "png", $w: auto, $h: auto, $pos: center center, $repeat: no-repeat, $bg: transparent ,  $blur: null ) {
+
+  $atblur_path: "#{$path}@blur.#{$ext}";
+  $at1x_path: "#{$path}@1x.#{$ext}";
+  $at2x_path: "#{$path}@2x.#{$ext}";
+
+  @if ($blur != null) {
+    background-color: $bg;
+    background-image: url("#{$atblur_path}");
+    background-size: $w $h;
+    background-position: $pos;
+    background-repeat: $repeat;
+
+  } @else {
+
+    background-color: $bg;
+    background-image: url("#{$at1x_path}");
+    background-size: $w $h;
+    background-position: $pos;
+    background-repeat: $repeat;
+
+    @media all and (-webkit-min-device-pixel-ratio : 1.5),
+      all and (-o-min-device-pixel-ratio: 3/2),
+      all and (min--moz-device-pixel-ratio: 1.5),
+      all and (min-device-pixel-ratio: 1.5) {
+      background-image: url("#{$at2x_path}");
+    }
+  }
+
+
 }
