@@ -9,7 +9,20 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
+var fileinclude = require('gulp-file-include');
 
+gulp.task('fileinclude', function() {
+  gulp.src(['app/template/*.html'])
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file',
+      context: {
+        "home": false
+      }
+
+    }))
+    .pipe(gulp.dest('app'));
+});
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
@@ -23,8 +36,9 @@ gulp.task('sass', function() {
 gulp.task('browserSync', function() {
     browserSync.init({
         server: {
-            baseDir: 'app'
+            baseDir: 'app',
         },
+        notify: false
     })
 })
 
@@ -64,16 +78,17 @@ gulp.task('cache:clear', function (callback) {
     return cache.clearAll(callback)
 })
 
-gulp.task('watch', ['browserSync', 'sass'], function (){
+gulp.task('watch', ['browserSync', 'sass','fileinclude'], function (){
     gulp.watch('app/scss/**/*.scss', ['sass']);
     // Reloads the browser whenever HTML or JS files change
+    gulp.watch('app/template/**/*.html', ['fileinclude']);
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
 gulp.task('build', function (callback) {
     runSequence('clean:dist',
-        ['sass', 'useref', 'images', 'fonts'],
+        ['fileinclude','sass', 'images', 'fonts'], 'useref',
         callback
     )
 })

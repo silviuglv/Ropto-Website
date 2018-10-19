@@ -1012,3 +1012,16 @@ footer {
   padding: 2rem; }
   footer p {
     margin-bottom: 0; }
+
+/* COOKIES PAGES */
+.text-page {
+  margin-top: 60px; }
+  .text-page .text-block {
+    margin: 1rem 0; }
+    @media (min-width: 1280px) {
+      .text-page .text-block {
+        margin: 2rem 0; } }
+  .text-page ul {
+    list-style-type: disc;
+    margin-left: 15px;
+    padding-left: 15px; }

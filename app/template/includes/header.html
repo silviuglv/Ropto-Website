@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Ropto</title>
+    <meta name="description" content="Lorem Ipsum">
+    <meta name="author" content="Ropto Ltd">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+
+
+    <!--build:css css/styles.min.css-->
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/styles.css">
+    <!--endbuild-->
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,700,900" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="menu" id="menu">
+    <div class="menu-inner">
+      <ul>
+        @@if (home === true ) {
+          <li><a class="scroll-link" href="#who-is-ropto">Who is Ropto?</a></li>
+          <li><a class="scroll-link" href="#ropto-in-numbers">Ropto in numbers</a></li>
+          <li><a class="scroll-link" href="#what-we-do">What we do</a></li>
+          <li><a class="scroll-link" href="#how-were-different">How we're different</a></li>
+          <li><a class="scroll-link" href="#how-we-do-it">How we do it</a></li>
+          <li><a class="scroll-link" href="#client-case-studies">Client case studies</a></li>
+          <li><a class="scroll-link" href="#testimonials">Testimonials</a></li>
+          <li><a class="scroll-link" href="#contact">Contact</a></li>
+        }
+        @@if (home === false ) {
+          <li><a href="/#who-is-ropto">Who is Ropto?</a></li>
+          <li><a href="/#ropto-in-numbers">Ropto in numbers</a></li>
+          <li><a href="/#what-we-do">What we do</a></li>
+          <li><a href="/#how-were-different">How we're different</a></li>
+          <li><a href="/#how-we-do-it">How we do it</a></li>
+          <li><a href="/#client-case-studies">Client case studies</a></li>
+          <li><a href="/#testimonials">Testimonials</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        }
+      </ul>
+    </div>
+  </div>
+
+    <header class="header" id="header">
+        @@if (home === true ) {
+          <a href="#" id="logo" class="scroll-to-top">
+        }
+        @@if (home === false ) {
+          <a href="/" id="logo">
+        }
+          <img src="images/logo-ropto.png" alt="Ropto logo">
+        </a>
+        <div class="nav-button" id="nav-button">
+          <div class="menu-burger" id="menu-burger">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+          </div>
+        </div>
+    </header>

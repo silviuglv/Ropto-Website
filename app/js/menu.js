@@ -58,7 +58,7 @@ $( ".scroll-link" ).click(function(e) {
   }, 1000);
 });
 
-$('#logo').click(function (e) {
+$('.scroll-to-top').click(function (e) {
     e.preventDefault();
     $('body,html').animate({
         scrollTop: 0

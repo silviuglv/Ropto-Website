@@ -1232,3 +1232,32 @@ footer{
         margin-bottom: 0;
     }
 }
+
+
+/* COOKIES PAGES */
+
+.text-page{
+  margin-top: 60px;
+
+  .text-block{
+      margin: 1rem 0;
+
+      @include breakpoint(desktop){
+        margin: 2rem 0;
+      }
+
+  }
+
+  h3{
+  }
+
+  ul{
+    list-style-type: disc;
+    margin-left: 15px;
+    padding-left: 15px;
+
+    li{
+
+    }
+  }
+}
